@@ -1,22 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Message for you</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
     <div class="wrapper">
-      <h2 class="question">you like me?</h2>
-      <img class="gif" alt="gif"
-      src=" https://raw.githubusercontent.com/DzarelDeveloper/Img/main/gif.webp"">
+        <form id="loginForm" action="https://www.youtube.com" method="post">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="Password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="Remember-Forgot">
+                <label><input type="checkbox"> Remember Me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="Register-Link">
+                <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p>
+                <p>Or Register with</p>
+                <a href="https:///register-with-google" class="google-login-button">
+                    <i class='bx bxl-google'></i> Register with Google
+                </a>
+            </div>
+        </form>
 
-    <div class=" btn-group"> <button class="yes-btn">Yes</button> <button class="no-btn"> No</button>
-
+        <form id="registerForm" action="https://www.contoh.com" method="post" style="display: none;">
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="Register-Link">
+                <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
+                <p>Or Register with</p>
+                <a href="https:///register-with-google" class="google-login-button">
+                    <i class='bx bxl-google'></i> Register with Google
+                </a>
+            </div>
+        </form>
     </div>
-    </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showRegisterForm() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+        }
+
+        function login() {
+            // Implement your login logic here
+            var username = document.getElementById('login-username').value;
+            var password = document.getElementById('login-password').value;
+
+            // Example: Check if username and password match
+            if (username === 'user' && password === '12345') {
+                alert('Login successful!');
+            } else {
+                alert('Login failed. Check your username and password.');
+            }
+        }
+
+        function register() {
+            // Implement your registration logic here
+            var username = document.getElementById('register-username').value;
+            var password = document.getElementById('register-password').value;
+
+            // Example: Save the username and password (you should use a secure method)
+            alert('Registration successful! Now you can login with your credentials.');
+        }
+    </script>
 </body>
 </html>
